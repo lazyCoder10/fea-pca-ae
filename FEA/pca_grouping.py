@@ -141,8 +141,21 @@ def run_pca_fea_process(data_file_path,
 
     factor_architecture.get_factor_topology_elements()
 
-    function = Function(function_number=fcn_num, lbound=lb, ubound=ub, shift_data_file="f17_op.txt",
-                        matrix_data_file="")
+    if fcn_num == 3:
+        shift_data_file = "f03_o.txt"
+    elif fcn_num == 5:
+        shift_data_file = "f05_op.txt"
+        matrix_data_file = "f05_m.txt"
+    elif fcn_num == 11:
+        shift_data_file = "f11_op.txt"
+        matrix_data_file = "f11_m.txt"
+    elif fcn_num == 17:
+        shift_data_file = "f17_op.txt"
+    else:
+        shift_data_file = "f20_o.txt"
+
+    function = Function(function_number=fcn_num, lbound=lb, ubound=ub, shift_data_file=shift_data_file,
+                        matrix_data_file=matrix_data_file)
     print(function)
 
     # # Instantiate and run the FEA

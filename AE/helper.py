@@ -40,13 +40,13 @@ def plot_losses(losses):
     plt.legend()
     plt.show()
 
-def get_scaled_data(file_path):
+def get_scaled_data(dataset):
 
-    data = pd.read_csv(file_path)
-    y = data['target']
-    data = data.drop('target', axis=1)
+    #data = pd.read_csv(file_path)
+    y = dataset['target']
+    dataset = dataset.drop('target', axis=1)
     scaler = MinMaxScaler()
-    scaled_data = scaler.fit_transform(data)
+    scaled_data = scaler.fit_transform(dataset)
     return scaled_data, y
 
 def get_losses(file_path, encoding_dim):

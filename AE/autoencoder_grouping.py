@@ -141,7 +141,7 @@ def autoencoder_grouping(file_path, encoding_dim, activation, reg):
     return t, factors
 
 
-def run_autoencoder_fea_process(data_file_path,
+def run_autoencoder_fea_process(dataset,
                                 num_factors,
                                 fea_runs,
                                 generations,
@@ -169,7 +169,7 @@ def run_autoencoder_fea_process(data_file_path,
     else:
         shift_data_file = "f20_o.txt"
 
-    t, factors = autoencoder_grouping(data_file_path, num_factors, activation, reg)
+    t, factors = autoencoder_grouping(dataset, num_factors, activation, reg)
 
     write_to_file(factor_dir, autofacors, t, factors)
     # Define the factor architecture
