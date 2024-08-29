@@ -30,15 +30,15 @@ def write_to_file(path_dir, csv_file_name, max_threshold, factors):
     print(f"Data has been written to {file_path}")
 
 
-def load_and_prepare_pca_data(file_path):
+def load_and_prepare_pca_data(dataset):
     """
     Load and preprocess data.
     """
-    df = pd.read_csv(file_path)
+    #df = pd.read_csv(file_path)
 
     # Scale the data
     scaler = MinMaxScaler()
-    X_std = scaler.fit_transform(df)
+    X_std = scaler.fit_transform(dataset)
     return X_std
 
 
@@ -119,7 +119,7 @@ def find_largest_threshold_for_connected_graph(eigenvectors):
 ###############################################################
 
 
-def run_pca_fea_process(data_file_path,
+def run_pca_fea_process(dataset,
                         num_factors,
                         fea_runs,
                         generations,
@@ -132,7 +132,7 @@ def run_pca_fea_process(data_file_path,
     """
     Function to setup and run the Factored Evolutionary Algorithm process.
     """
-    X_std = load_and_prepare_pca_data(data_file_path)
+    X_std = load_and_prepare_pca_data(dataset)
     eigenvectors = get_eigenvectors(X_std)
     max_threshold, factors = find_largest_threshold_for_connected_graph(eigenvectors)
     write_to_file(threshold_dir, max_threshold_factors_file, max_threshold, factors)
