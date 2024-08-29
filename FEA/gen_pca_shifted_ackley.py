@@ -39,7 +39,7 @@ def pca():
 
 
     # Common parameters
-    num_factors = 100
+    num_factors = 250
     fea_runs = 50
     generations = 100
     pop_size = 100
