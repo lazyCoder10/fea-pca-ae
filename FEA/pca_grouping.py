@@ -141,6 +141,9 @@ def run_pca_fea_process(dataset,
 
     factor_architecture.get_factor_topology_elements()
 
+    shift_data_file = ""
+    matrix_data_file = ""
+
     if fcn_num == 3:
         shift_data_file = "f03_o.txt"
     elif fcn_num == 5:

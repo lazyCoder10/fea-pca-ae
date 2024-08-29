@@ -49,6 +49,9 @@ def run_random_fea_process(dim,
     fa = FactorArchitecture(dim, factors)
     fa.get_factor_topology_elements()
 
+    shift_data_file = ""
+    matrix_data_file = ""
+
     if fcn_num == 3:
         shift_data_file = "f03_o.txt"
     elif fcn_num == 5:
