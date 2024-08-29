@@ -42,7 +42,7 @@ def random_fea():
     print(PINK + f"Radom 10 processing ....")
 
     # Base paths
-    base_performance_result_dir = "/Users/xuyingwangswift/Desktop/FEA_PCA_AUTOENCODER/src/Results/Random_dim10"
+    base_performance_result_dir = "/home/m33w398/FEA_PCA_AUTOENCODER/Results/Random_dim10"
 
     # Common parameters
     dim = 10
@@ -51,21 +51,22 @@ def random_fea():
     pop_size = 100
     
     # Looping through the benchmark_functions to find the specific function and its bounds
-    for i, (func, bounds) in enumerate(benchmark_functions):
-        function_name = func        
-        fcn_num = i + 20  # Assuming the function number is its position in the list
-        lb, ub = bounds
-        # Define file paths
-        performance_result_file = function_name + '_random_data_dim10_gen_10000_result.csv'
-        # Your print statement with color
-        print(f"{GREEN}Running FEA process for {function_name} (Function #{fcn_num}){RESET}")
-        run_random_fea_process(dim, 
-                               fea_runs, generations, 
-                               pop_size,
-                               fcn_num, lb, ub,
-                               base_performance_result_dir,
-                               performance_result_file)
-        print(PINK + f"Random 10 Completed.")
+    #for i, (func, bounds) in enumerate(benchmark_functions):
+    function_name = ""
+    fcn_num = 3  # Assuming the function number is its position in the list
+    lb = -32
+    ub = 32
+    # Define file paths
+    performance_result_file = function_name + '_random_data_dim10_gen_10000_result.csv'
+    # Your print statement with color
+    print(f"{GREEN}Running FEA process for {function_name} (Function #{fcn_num}){RESET}")
+    run_random_fea_process(dim,
+                           fea_runs, generations,
+                           pop_size,
+                           fcn_num, lb, ub,
+                           base_performance_result_dir,
+                           performance_result_file)
+    print(PINK + f"Random 10 Completed.")
         
     
 

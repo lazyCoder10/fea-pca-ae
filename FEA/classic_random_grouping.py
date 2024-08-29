@@ -49,7 +49,7 @@ def run_random_fea_process(dim,
     fa = FactorArchitecture(dim, factors)
     fa.get_factor_topology_elements()
 
-    function = Function(function_number=fcn_num, lbound=lb, ubound=ub, shift_data_file="f17_op.txt",
+    function = Function(function_number=fcn_num, lbound=lb, ubound=ub, shift_data_file="f03_o.txt",
                         matrix_data_file="")
     print(function)
     # # Instantiate and run the FEA
