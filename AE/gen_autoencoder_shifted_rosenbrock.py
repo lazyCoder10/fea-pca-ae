@@ -44,10 +44,10 @@ def autoencoder():
 
     # Looping through the benchmark_functions to find the specific function and its bounds
     # for i, (func, bounds) in enumerate(benchmark_functions):
-    function_name = "shifted_ackley"
-    fcn_num = 3  # Assuming the function number is its position in the list
-    lb = -32
-    ub = 32
+    function_name = "shifted_rosenbrock"
+    fcn_num = 20  # Assuming the function number is its position in the list
+    lb = -100
+    ub = 100
 
     # Define file paths
     # data_file_path = base_data_path + function_name + ".csv"
@@ -57,11 +57,11 @@ def autoencoder():
     # activation_func = ['tanh', 'relu']
     # regularizer = ['l1', 'l2']
 
-    base_performance_result_dir = f"/home/m33w398/AE_FEA/Results/dim_{num_factors}_{function_name}"
-    factor_dir = f'/home/m33w398/AE_FEA/Factors/{function_name}'
+    base_performance_result_dir = f"/home/m33w398/FEA_PCA_AE/AE_Results/dim_{num_factors}_{function_name}"
+    factor_dir = f'/home/m33w398/FEA_PCA_AE/AE_Factors/{function_name}'
 
     REPO_ID = "ashfakurarju/FEA-PCA-AE"
-    FILENAME = "shifted_ackley.csv"
+    FILENAME = "shifted_rosenbrock.csv"
 
     dataset = pd.read_csv(
         hf_hub_download(repo_id=REPO_ID, filename=FILENAME, repo_type="dataset")
