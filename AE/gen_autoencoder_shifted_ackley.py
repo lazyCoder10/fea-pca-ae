@@ -57,8 +57,8 @@ def autoencoder():
     # activation_func = ['tanh', 'relu']
     # regularizer = ['l1', 'l2']
 
-    base_performance_result_dir = f"/home/m33w398/AE_FEA/Results/dim_{num_factors}_{function_name}"
-    factor_dir = f'/home/m33w398/AE_FEA/Factors/{function_name}'
+    base_performance_result_dir = f"/home/m33w398/FEA_PCA_AE/Results/dim_{num_factors}_{function_name}"
+    factor_dir = f'/home/m33w398/FEA_PCA_AE/Factors/{function_name}'
 
     REPO_ID = "ashfakurarju/FEA-PCA-AE"
     FILENAME = "shifted_ackley.csv"
