@@ -1,5 +1,6 @@
 from pca_grouping import run_pca_fea_process
-
+from huggingface_hub import hf_hub_download
+import pandas as pd
 # ANSI escape codes for color (e.g., green)
 GREEN = "\033[92m"
 RESET = "\033[0m"
@@ -33,34 +34,45 @@ def pca():
     print(PINK + f"PCA 50 is processing...")
     # List of benchmark functions and their domain ranges
     # Base paths
-    base_data_path = "/Users/ashfak/workspace/FEA_PCA_AUTOENCODER/Data/Generated_data_dim50_row50000/"
-    base_performance_result_dir = "/Users/ashfak/Desktop/FEA_PCA_AUTOENCODER/src/Results/PCA_dim150"
-    threshold_dir = '/Users/ashfak/Desktop/FEA_PCA_AUTOENCODER/src/Results/Threshold/'
+    #base_data_path = "/Users/ashfak/workspace/FEA_PCA_AUTOENCODER/Data/Generated_data_dim100_row100000/"
+    #base_performance_result_dir = "/Users/ashfak/Desktop/FEA_PCA_AUTOENCODER/src/Results/PCA_dim150"
+
 
     # Common parameters
-    num_factors = 50
+    num_factors = 250
     fea_runs = 50
     generations = 100
     pop_size = 100
 
+    threshold_dir = f"/home/m33w398/FEA_PCA_AE/PCA_Results/dim_{num_factors}_threshold"
+
     # Looping through the benchmark_functions to find the specific function and its bounds
     # for i, (func, bounds) in enumerate(benchmark_functions):
-    function_name = "shifted_rosenbrock"
-    fcn_num = 20  # Assuming the function number is its position in the list
-    lb = -100
-    ub = 100
+    function_name = "single_group_shifted_m_rotated_rastrigin"
+    fcn_num = 5  # Assuming the function number is its position in the list
+    lb = -5
+    ub = 5
 
     # Define file paths
-    base_performance_result_dir = f"/Users/ashfak/Desktop/FEA_PCA_AUTOENCODER/src/Results/PCA_dim{num_factors}"
-    data_file_path = base_data_path + function_name + ".csv"
+    base_performance_result_dir = f"/home/m33w398/PCA_FEA/Results/dim_{num_factors}"
+
+    REPO_ID = "ashfakurarju/FEA-PCA-AE"
+    FILENAME = f"{function_name}.csv"
+
+    dataset = pd.read_csv(
+        hf_hub_download(repo_id=REPO_ID, filename=FILENAME, repo_type="dataset")
+    )
+
+    #data_file_path = base_data_path + function_name + ".csv"
     #for i in range(11):
-    performance_result_file = function_name + f'_pca_data_dim_{num_factors}_gen_100000_result.csv'
+    performance_result_file = function_name + f'_pca_data_dim_{num_factors}_gen_{num_factors*1000}_result.csv'
     max_threshold_factors_file = function_name + f'_dim{num_factors}_threshold.csv'
 
     # Your print statement with color
     print(f"{GREEN}Running FEA process for {function_name} (Function #{fcn_num}){RESET}")
     # Call the FEA process function
-    run_pca_fea_process(data_file_path, num_factors,
+
+    run_pca_fea_process(dataset, num_factors,
                         fea_runs, generations,
                         pop_size,
                         fcn_num, lb, ub,

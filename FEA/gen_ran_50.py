@@ -34,12 +34,12 @@ def random_fea():
     print(PINK + f"Radom 50 processing ....")
 
     # Base paths
-    base_data_path = "/Users/ashfak/workspace/FEA_PCA_AUTOENCODER/Data/Generated_data_dim150_row150000/"
+    base_data_path = "/Users/ashfak/workspace/FEA_PCA_AUTOENCODER/Data/Generated_data_dim50_row50000/"
 
     threshold_dir = '/Users/ashfak/Desktop/FEA_PCA_AUTOENCODER/src/Results/Threshold/'
 
     # Common parameters
-    dim = 100
+    dim = 50
     fea_runs = 50
     generations = 100
     pop_size = 100

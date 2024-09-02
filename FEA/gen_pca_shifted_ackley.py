@@ -44,7 +44,7 @@ def pca():
     generations = 100
     pop_size = 100
 
-    threshold_dir = f"/home/m33w398/PCA_FEA/Results/dim_{num_factors}_threshold"
+    threshold_dir = f"/home/m33w398/FEA_PCA_AE/PCA_Results/dim_{num_factors}_threshold"
 
     # Looping through the benchmark_functions to find the specific function and its bounds
     # for i, (func, bounds) in enumerate(benchmark_functions):
