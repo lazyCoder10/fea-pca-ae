@@ -34,11 +34,11 @@ def load_and_prepare_pca_data(dataset):
     """
     Load and preprocess data.
     """
-    df = pd.read_csv(dataset)
+    #df = pd.read_csv(dataset)
 
     # Scale the data
     scaler = MinMaxScaler()
-    X_std = scaler.fit_transform(df)
+    X_std = scaler.fit_transform(dataset)
     return X_std
 
 
