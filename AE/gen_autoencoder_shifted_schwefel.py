@@ -52,10 +52,10 @@ def autoencoder():
     # Define file paths
     # data_file_path = base_data_path + function_name + ".csv"
 
-    activation_func = ['linear', 'tanh', 'relu']
-    regularizer = ['l1', 'l2']
-    # activation_func = ['tanh', 'relu']
+    # activation_func = ['linear', 'tanh', 'relu']
     # regularizer = ['l1', 'l2']
+    activation_func = ['relu']
+    regularizer = ['l2']
 
     base_performance_result_dir = f"/home/m33w398/FEA_PCA_AE/AE_Results/dim_{num_factors}_{function_name}"
     factor_dir = f'/home/m33w398/FEA_PCA_AE/AE_Factors/{function_name}'
